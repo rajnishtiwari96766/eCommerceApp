@@ -1,6 +1,6 @@
 //creat contextAPI -> Create appProvider -> create usecontext hooks
 
-import { faL } from "@fortawesome/free-solid-svg-icons";
+// import { faL } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios"; 
 import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from '../reducer/prod_reducer'
