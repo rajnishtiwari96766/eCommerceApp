@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import { customHook1 } from "../../context/prod_context";
 import PageNavigation from "./PageNavigation";
 import Img_arr from "./Img_arr";
-import Currency from "../../helper/currency";
-
+import Currency from "../../helper/Currency";
 const Single_prod = () => {
   const api = "https://api.pujakaitem.com/api/products";
 

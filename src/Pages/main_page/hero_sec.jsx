@@ -12,7 +12,7 @@ const Hero_sec = ({myData}) => {
         </p>
       </div>
 
-      <img src="https://www.shutterstock.com/image-vector/indian-tea-maker-vector-cartoon-600nw-2170773599.jpg" alt="Loading" className='w-1/2 h-1/2' />
+      <img src="src/assets/Magnify your house with useful household gadgets.jpeg" alt="Loading" className='w-1/2 h-1/3 m-10 rounded-md shadow-lg' />
     </div>
   )
 }

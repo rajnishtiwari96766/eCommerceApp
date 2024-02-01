@@ -4,7 +4,7 @@ import Hero_sec from './hero_sec'
 const About = () => {
 
   const data={
-    intro:"This is about Chaiwala"
+    intro:"This is about Gadget-Store"
   }
 
   return (

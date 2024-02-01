@@ -24,7 +24,7 @@ const Footer = () => {
     <div className='bg-blue-300 h-64 grid grid-cols-3 p-5 px-48 pl-80'>
         <div className='w-full '>
         <div className='w-1/2 pt-10'>
-        <p className='pb-5'>Chaiwala</p>
+        <p className='pb-5'>Gadget-Store</p>
         <p className='text-left '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam maxime eum magnam eveniet ab dolores?</p>
         </div>
         </div>

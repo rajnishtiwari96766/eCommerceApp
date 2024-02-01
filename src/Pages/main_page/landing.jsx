@@ -8,7 +8,7 @@ const Landing = () => {
   const { name } = customHook1();
 
   const data = {
-    intro: "Welcome to Chaiwala!",
+    intro: "Welcome to Gadget-Store!",
   };
   return (
     <div>

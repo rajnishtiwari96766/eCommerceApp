@@ -19,7 +19,7 @@ const Navbar = () => {
                     md:space-x-60
                     lg:space-x-96'>
       <div className='flex space-x-10'>
-      <h1 className='text-2xl'>Chaiwala</h1>
+      <h1 className='text-2xl'>Gadget-Store</h1>
       <input
         type="text"
         placeholder='Enter the beverage'
