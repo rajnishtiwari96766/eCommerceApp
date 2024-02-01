@@ -22,7 +22,7 @@ const Navbar = () => {
       <h1 className='text-2xl'>Gadget-Store</h1>
       <input
         type="text"
-        placeholder='Enter the beverage'
+        placeholder='Enter the product'
         className='w-96 h-8 px-2 rounded-md hidden md:block' // Adjust the values as needed
       />
       </div>
