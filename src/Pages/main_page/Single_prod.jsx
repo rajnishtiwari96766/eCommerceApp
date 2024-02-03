@@ -37,58 +37,52 @@ const Single_prod = () => {
     return <div>...Loading</div>;
   }
 
-  return(
+  return (
     <div>
-    <div className="h-12 p-4 text-lg bg-slate-300 ">
-    <PageNavigation title={name} />
-    </div>
-
-    <div className="flex">
-    
-    <div className="images px-16 py-20 h-1/4 ">
-    <Img_arr imgs={image}/>
-    </div>
-
-    <div className="details py-10 ">
-      <div className="flex">
-    <div className="text-3xl my-3">{name}</div>
-    <div className="text-lg">
+      <div className="h-12 p-4 text-lg bg-slate-300 ">
+        <PageNavigation title={name} />
       </div>
-      <p>{stock>0 ? 'In-stock': 'Out of stock'}</p>
-    </div>
-    {/* <div>{company}</div> */}
-    
-    <Star_review stars={stars} reviews={reviews} />
 
-    <div className="my-3 text-lg">
-      <span className="">MRP:
-        <del className="px-0.5">
-          <Currency price={price*15}/>
-        </del>
-      </span>
+      <div className="flex">
+        <div className="images px-16 py-20 h-1/4 ">
+          <Img_arr imgs={image} />
+        </div>
 
-      <span className="px-3">
-        <Currency price={price*10}/>
-      </span>
-    </div>
+        <div className="details py-10 ">
+          <div className="flex">
+            <div className="text-3xl my-3">{name}</div>
+            <div className="text-lg"></div>
+            <p>{stock > 0 ? "In-stock" : "Out of stock"}</p>
+          </div>
+          {/* <div>{company}</div> */}
 
-    <div className="text-lg my-5">
-      <p>{description}</p>
-    </div>
+          <Star_review stars={stars} reviews={reviews} />
 
-    <div>
-      <hr />
-      {stock > 0 && <Add_to_cart product={singleProduct}/>}
-    </div>
+          <div className="my-3 text-lg">
+            <span className="">
+              MRP:
+              <del className="px-0.5">
+                <Currency price={price * 15} />
+              </del>
+            </span>
 
-    </div>
-    </div>
+            <span className="px-3">
+              <Currency price={price * 10} />
+            </span>
+          </div>
 
+          <div className="text-lg my-5">
+            <p>{description}</p>
+          </div>
 
+          <div>
+            <hr />
+            {stock > 0 && <Add_to_cart product={singleProduct} />}
+          </div>
+        </div>
+      </div>
     </div>
-  
-    ) 
-    
+  );
 };
 
 export default Single_prod;

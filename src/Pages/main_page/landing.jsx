@@ -14,7 +14,7 @@ const Landing = () => {
     <div>
       {name}
       <Hero_sec myData={data} />
-      <FeatureProducts/>
+      <FeatureProducts />
     </div>
   );
 };
