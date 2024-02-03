@@ -5,6 +5,7 @@ import PageNavigation from "./PageNavigation";
 import Img_arr from "./Img_arr";
 import Currency from "../../helper/Currency";
 import Star_review from "./star_review";
+import Add_to_cart from "./add_to_cart";
 const Single_prod = () => {
   const api = "https://api.pujakaitem.com/api/products";
 
@@ -73,6 +74,11 @@ const Single_prod = () => {
 
     <div className="text-lg my-5">
       <p>{description}</p>
+    </div>
+
+    <div>
+      <hr />
+      {stock > 0 && <Add_to_cart product={singleProduct}/>}
     </div>
 
     </div>
