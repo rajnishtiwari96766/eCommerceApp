@@ -56,10 +56,8 @@ const Single_prod = () => {
       <p>{stock>0 ? 'In-stock': 'Out of stock'}</p>
     </div>
     {/* <div>{company}</div> */}
-    <div className="text-lg my-3">{stars}</div>
-    <div className="text-lg my-1">
-      <Star_review/>
-    </div>
+    
+    <Star_review stars={stars} reviews={reviews} />
 
     <div className="my-3 text-lg">
       <span className="">MRP:
