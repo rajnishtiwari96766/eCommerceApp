@@ -11,7 +11,7 @@ const Star_review = ({stars,reviews}) => {
   })
   return (
     <div>
-      {star_rating}
+      {star_rating} (Customer Reviews-{reviews})
     </div>
   )
 }
