@@ -46,6 +46,20 @@ const reducer = (state, action) => {
         isError: true,
       };
 
+      //all products api call
+      case "all_prod_loading":
+        return{
+          ...state,
+          isSingleLoading:true,
+        };
+
+        case "all_prod_get":
+          return{
+            ...state,
+            isSingleLoading:false,
+            all_prod:
+          }
+
     default:
       return state;
   }

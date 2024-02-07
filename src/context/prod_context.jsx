@@ -26,6 +26,7 @@ const Provider = ({ children }) => {
     try {
       const res = await axios.get(url);
       const products = await res.data;
+      console.log(products)
       dispatch({ type: "Get_Data", payload: products });
       //payload means what do you need during the state
     } catch (error) {
@@ -39,11 +40,25 @@ const Provider = ({ children }) => {
     try {
       const res = await axios.get(url);
       const sing_prod = await res.data;
+     
       dispatch({ type: "single_prod_get", payload: sing_prod });
     } catch (error) {
       dispatch({ type: "single_prod_error" });
     }
   };
+
+  //API call for all-products page...
+  const all_prod=async(url)=>{
+    dispatch({type:"all_prod_loading"})
+    try{
+      const res=await axios.get(url)
+      const all_prod=await res.data;
+
+      dispatch({type: "all_prod_get", payload: all_prod})
+    }catch(error){
+      dispatch({type:"all_prod_error"})
+    }
+  }
 
   useEffect(() => {
     getproducts(api);

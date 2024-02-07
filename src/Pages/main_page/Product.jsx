@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import Currency from '../../helper/currency'
-
+import Currency from '../../helper/Currency'
 const Product = (currEle) => {
     const {id,name,image,price,category}=currEle
   return (
