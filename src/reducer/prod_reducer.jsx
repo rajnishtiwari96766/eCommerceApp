@@ -53,13 +53,6 @@ const reducer = (state, action) => {
           isSingleLoading:true,
         };
 
-        case "all_prod_get":
-          return{
-            ...state,
-            isSingleLoading:false,
-            all_prod:
-          }
-
     default:
       return state;
   }

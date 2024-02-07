@@ -1,6 +1,6 @@
 //creat contextAPI -> Create appProvider -> create usecontext hooks
 
-// import { faL } from "@fortawesome/free-solid-svg-icons";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../reducer/prod_reducer";
@@ -46,19 +46,6 @@ const Provider = ({ children }) => {
       dispatch({ type: "single_prod_error" });
     }
   };
-
-  //API call for all-products page...
-  const all_prod=async(url)=>{
-    dispatch({type:"all_prod_loading"})
-    try{
-      const res=await axios.get(url)
-      const all_prod=await res.data;
-
-      dispatch({type: "all_prod_get", payload: all_prod})
-    }catch(error){
-      dispatch({type:"all_prod_error"})
-    }
-  }
 
   useEffect(() => {
     getproducts(api);
