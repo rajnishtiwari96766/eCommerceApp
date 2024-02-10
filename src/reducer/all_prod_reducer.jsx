@@ -4,8 +4,11 @@ const all_prod_reducer=(state,action)=>{
             return{
                 ...state,
                 filter_products:[...action.payload],
-                all_producta:[...action.payload]
+                all_products:[...action.payload]
             }
 
+            default: 
+            return state;
     }
 }
+export default all_prod_reducer;

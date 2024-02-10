@@ -8,6 +8,7 @@ import Navbar from "./Pages/main_page/navbar";
 import About from "./Pages/main_page/about";
 import Footer from "./Pages/main_page/footer";
 import Single_prod from "./Pages/main_page/Single_prod";
+import ProductList from "./Pages/main_page/ProductList";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/about" element={<About />} />
+        <Route path="/ProductList" element={<ProductList />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/Single_prod/:id" element={<Single_prod />} />

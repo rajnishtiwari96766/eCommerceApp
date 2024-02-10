@@ -11,11 +11,11 @@ const initialState={
 export const FilterContextProvider=({children})=>{
 
     const{products}=customHook1()
-
+    
     const [state,dispatch]=useReducer(reducer,initialState)
     useEffect(()=>{
-        dispatch({type:"Load_all_prod", payload:products})
-    },[])
+        dispatch:({type:"Load_all_prod", payload:products})
+    },[{products}])
     
     return(
         <FilterContext.Provider value={{...state}}>

@@ -17,7 +17,9 @@ const Navbar = () => {
                     lg:space-x-96"
       >
         <div className="flex space-x-10">
+          <NavLink to="/">
           <h1 className="text-2xl">Gadget-Store</h1>
+          </NavLink>
           <input
             type="text"
             placeholder="Enter the product"
@@ -46,6 +48,7 @@ const Navbar = () => {
         } flex flex-col p-2 pl-20 md:flex md:flex-row md:space-x-10 md:px-52 bg-slate-300 `}
       >
         <NavLink to="/">Home</NavLink>
+        <NavLink to="/ProductList">Our Products</NavLink>
         <NavLink to="/contact">Contact Us</NavLink>
         <NavLink to="/about">About us</NavLink>
       </div>
