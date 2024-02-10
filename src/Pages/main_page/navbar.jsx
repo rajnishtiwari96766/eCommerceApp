@@ -46,7 +46,6 @@ const Navbar = () => {
         } flex flex-col p-2 pl-20 md:flex md:flex-row md:space-x-10 md:px-52 bg-slate-300 `}
       >
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/products">Products</NavLink>
         <NavLink to="/contact">Contact Us</NavLink>
         <NavLink to="/about">About us</NavLink>
       </div>
