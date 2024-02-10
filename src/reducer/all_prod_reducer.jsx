@@ -3,9 +3,9 @@ const all_prod_reducer=(state,action)=>{
         case "Load_all_prod":
             return{
                 ...state,
-                filter_products:[...action.payload],
+                filter_Products:[...action.payload],
                 all_products:[...action.payload]
-            }
+            };
 
             default: 
             return state;
