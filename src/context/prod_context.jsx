@@ -1,6 +1,5 @@
 //creat contextAPI -> Create appProvider -> create usecontext hooks
 
-import { faL } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../reducer/prod_reducer";
@@ -27,8 +26,8 @@ const Provider = ({ children }) => {
     try {
       const res = await axios.get(url);
       const products = await res.data;
-      dispatch({ type: "Get_Data", payload: products });
       console.log(products)
+      dispatch({ type: "Get_Data", payload: products });
       //payload means what do you need during the state
     } catch (error) {
       dispatch({ type: "Error_Occurred" });

@@ -1,34 +1,34 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import { customHook1 } from "./prod_context";
-import filter_reducer from "../reducer/filter_reducer";
-
+import reducer from "../reducer/filter_reducer";
 const FilterContext=createContext()
 
-const initialstate={
+const initialState={
     filter_products:[],
     all_products:[]
 }
 
-export const FilterContextProvider=({children})=>{
+// In FilterContextProvider
 
-    const {products}=customHook1()
+export const FilterContextProvider = ({ children }) => {
+    const { products } = customHook1();
     console.log(products)
+    const [state, dispatch] = useReducer(reducer, initialState);
 
-    const [state,dispatch]=useReducer(filter_reducer,initialstate)
+    useEffect(() => {
+        dispatch({ type: "Load_all_prod", payload: products });
+    }, [products]);
 
-    useState(()=>{
-        dispatch({
-            type:"Load_all_prod", payload:products
-        })
-    },[])
-
-    return(
-        <FilterContext.Provider value={{...state}}>
+    return (
+        <FilterContext.Provider value={{ ...state }}>
             {children}
         </FilterContext.Provider>
-    )
-}
+    );
+};
+
 
 export const customHook2=()=>{
     return useContext(FilterContext)
 }
+
+export{FilterContext}
