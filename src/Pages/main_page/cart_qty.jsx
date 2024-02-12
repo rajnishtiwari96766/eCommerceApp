@@ -3,14 +3,16 @@ import { NavLink } from 'react-router-dom'
 
 const Cart_qty = ({amount,inc_qty,dec_qty}) => {
   return (
-    <div >
+    <>
+    <div className='flex space-x-5 my-2 px-2'>
         <button onClick={()=>dec_qty()}><i class="fa-solid fa-minus"></i></button>
-        <p>{amount}</p>
-        <button onClick={()=>inc_qty()}><i class="fa-solid fa-plus"></i></button>
-        <NavLink to='/cart'>
-        <button className='p-2 bg-slate-200'>Go to cart</button>
-        </NavLink>
+        <p >{amount}</p>
+        <button onClick={()=>inc_qty()} className='relative'><i class="fa-solid fa-plus"></i></button>
     </div>
+        <NavLink to='/cart' className="px-2">
+        <button className='p-2 bg-blue-500 rounded-md my-2'>Go to cart</button>
+        </NavLink>
+    </>
   )
 }
 

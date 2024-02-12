@@ -6,6 +6,12 @@ const filter_reducer=(state,action)=>{
                 filter_products:[...action.payload],
                 all_products:[...action.payload]
             }
+
+            case "gridDisplay":
+                return{
+                    ...state,
+                    grid_view:true
+                }
     
         default:
             return state;

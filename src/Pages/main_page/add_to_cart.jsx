@@ -15,20 +15,20 @@ const Add_to_cart = ({ product }) => {
   const dec_qty=()=>{
     amount>1 ? setAmount(amount-1) : setAmount(1)
   }
+
   return (
     <div>
       <div>
       {colors.map((currColor, index) => {
         return (
           <button
-            className="p-2 m-2"
+            className={`m-2 p-2 rounded-lg ${colour !== currColor ? "opacity-50" : ""}`}
             style={{ backgroundColor: currColor }}
             key={index}
-            onClick={() => setColour(currColor)}
+            onClick={() => setColour(currColor)
+              }
           >
-            {colour === currColor ? (
-              <i class="fa-sharp fa-solid fa-check"></i>
-            ) : null}
+
           </button>
         );
       })}

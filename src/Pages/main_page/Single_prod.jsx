@@ -75,6 +75,24 @@ const Single_prod = () => {
             <p>{description}</p>
           </div>
 
+          <div className="space-x-1 m-2">
+            <button className="p-3 rounded-md">
+            <i class="fa-solid fa-truck fa-xl"></i>
+            <p>Free Delivery</p>
+            </button>
+
+            <button className="p-3  rounded-md">
+            <i class="fa-solid fa-rotate fa-xl"></i>
+            <p>30-Days Replacement</p>
+            </button>
+
+            <button className="p-3  rounded-md">
+            <i class="fa-solid fa-shield fa-xl"></i>
+            <p>1-Year Warranty</p>
+            </button>
+
+                      </div>
+
           <div>
             <hr />
             {stock > 0 && <Add_to_cart product={singleProduct} />}
