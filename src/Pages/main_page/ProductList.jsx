@@ -5,11 +5,14 @@ import GridView from './GridView'
 const ProductList = () => {
 
   const {filter_products,gridView}=customHook2()
-  console.log(filter_products)
 
   if(gridView){
     return(
-      <GridView products={filter_products} />
+      <div className=''>
+      <div className='w-3/4 p-1'>
+        <GridView products={filter_products} />
+      </div>
+      </div>
     )
   }
   return (
