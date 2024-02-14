@@ -1,17 +1,26 @@
 import React, { useContext } from 'react'
 import { customHook2 } from '../../context/filter_context'
 import GridView from './GridView'
+import ListView from './ListView'
 
 const ProductList = () => {
 
-  const {filter_products,gridView}=customHook2()
+  const {filter_products,grid_view}=customHook2()
 
-  if(gridView){
+  if(grid_view===true){
     return(
-      <div className=''>
+ 
       <div className='w-3/4 p-1'>
         <GridView products={filter_products} />
       </div>
+     
+    )
+  }
+
+  if(grid_view===false){
+    return(
+      <div>
+        <ListView products={filter_products}/>
       </div>
     )
   }
