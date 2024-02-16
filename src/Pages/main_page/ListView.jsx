@@ -1,6 +1,7 @@
 import React from 'react'
 import Product from './Product'
 import Currency from '../../helper/Currency'
+import { NavLink } from 'react-router-dom'
 
 const ListView = ({products}) => {
   return (
@@ -28,6 +29,12 @@ const ListView = ({products}) => {
                             <div >
                             {description.slice(0,80)}...
                             </div>
+
+                            <NavLink to='/Single_prod'>
+                            <button>
+                                Read More
+                            </button>
+                            </NavLink>
                         </div>
                     </div>
 
