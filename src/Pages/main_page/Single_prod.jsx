@@ -91,7 +91,7 @@ const Single_prod = () => {
             <p>1-Year Warranty</p>
             </button>
 
-                      </div>
+           </div>
 
           <div>
             <hr />
