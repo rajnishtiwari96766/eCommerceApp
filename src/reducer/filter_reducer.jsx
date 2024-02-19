@@ -12,6 +12,12 @@ const filter_reducer = (state, action) => {
         ...state,
         grid_view: true,
       };
+      
+    case "listView":
+      return {
+        ...state,
+        grid_view: false,
+      };
 
     default:
       return state;

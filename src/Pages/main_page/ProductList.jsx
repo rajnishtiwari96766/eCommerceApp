@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { customHook2 } from '../../context/filter_context'
 import GridView from './GridView'
 import ListView from './ListView'
+import Sorting from './sorting'
 
 const ProductList = () => {
 
@@ -11,6 +12,7 @@ const ProductList = () => {
     return(
  
       <div className='w-3/4 p-1'>
+        <Sorting/>
         <GridView products={filter_products} />
       </div>
      
@@ -20,13 +22,15 @@ const ProductList = () => {
   if(grid_view===false){
     return(
       <div>
+        <Sorting/>
         <ListView products={filter_products}/>
       </div>
     )
   }
-  return (
-    <div>ProductList</div>
-  )
+  
 }
 
 export default ProductList
+
+
+
