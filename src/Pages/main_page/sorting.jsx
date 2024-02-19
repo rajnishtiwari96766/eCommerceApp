@@ -6,8 +6,8 @@ const Sorting = () => {
   return (
     <div className='flex justify-between p-2'>
         <div>
-        <button className='p-2' onClick={gridView}><i class="fa-solid fa-grip"></i></button>
-        <button onClick={listView}><i class="fa-solid fa-list"></i></button>
+        <button className='p-2' onClick={gridView}><i class="fa-solid fa-grip fa-xl"></i></button>
+        <button onClick={listView}><i class="fa-solid fa-list fa-lg"></i></button>
         </div>
 
         <div>{filter_products.length} Products Available</div>
