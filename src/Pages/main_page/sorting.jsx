@@ -2,7 +2,7 @@ import React from 'react'
 import { customHook2 } from '../../context/filter_context'
 
 const Sorting = () => {
-    const{gridView,listView,filter_products}=customHook2()
+    const{gridView,listView,filter_products,sort}=customHook2()
   return (
     <div className='flex justify-between p-2'>
         <div>
@@ -12,7 +12,16 @@ const Sorting = () => {
 
         <div>{filter_products.length} Products Available</div>
 
-        <div>Categorise</div>
+        <div>
+          <form >
+            <select name="filter" id="filter" onClick={sort}>
+              <option value="lowest">Lowest-Price</option>
+              <option value="highest">Highest-Price</option>
+              <option value="a-z">Products A-Z</option>
+              <option value="z-a">Products Z-A</option>
+            </select>
+          </form>
+        </div>
     </div>
   )
 }
