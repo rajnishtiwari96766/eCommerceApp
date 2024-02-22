@@ -27,6 +27,15 @@ const filter_reducer = (state, action) => {
           ...state,
           sort_price:filter_value
         }
+
+        case "sort_data":
+          let newSortedData,
+          let tempSortedData=
+        return{
+          ...state,
+          filter_products
+        }
+
     default:
       return state;
   }
