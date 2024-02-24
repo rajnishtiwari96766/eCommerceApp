@@ -14,10 +14,11 @@ const Sorting = () => {
         </button>
       </div>
 
-      <div>{filter_products.length} Products Available</div>
+      <div>{`${filter_products.length} Products Available`}</div>
 
       <div>
         <form>
+          {/* <label htmlFor="filter"></label> */}
           <select name="filter" id="filter" onClick={sort}>
             <option value="lowest">Lowest-Price</option>
             <option value="highest">Highest-Price</option>

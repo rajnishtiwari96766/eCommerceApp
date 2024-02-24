@@ -12,65 +12,47 @@ const filter_reducer = (state, action) => {
         ...state,
         grid_view: true,
       };
-      
+
     case "listView":
       return {
         ...state,
         grid_view: false,
       };
 
-      case "sort_elements":
-        let filter_option=document.getElementById("filter")
-        let filter_value=filter_option.options[filter_option.selectedIndex].value;
-        console.log(filter_value)
-        return{
-          ...state,
-          sort_value:filter_value
+    case "sort_elements":
+      return {
+        ...state,
+        sort_value: action.payload,
+      };
+
+    case "sort_data":
+      let newSortedData;
+      const { filter_products } = state;
+      let tempSortedData = [...filter_products];
+
+      const compare_data = (a, b) => {
+        if (state.sort_value === "lowest") {
+          return a.price - b.price;
         }
 
-        case "sort_data":
-          let newSortedData;
-          let tempSortedData=[...action.payload]
-
-          //sorted data in ascending value of price
-          if(state.sort_value==="lowest"){
-            const compare_price=(a,b)=>{
-              return(
-                a.price-b.price
-              ) 
-            }
-            newSortedData=tempSortedData.sort(compare_price)
-          }
-          //sorted data in descending value of price
-          if(state.sort_value === "highest"){
-            const compare_price=(a,b)=>{
-              return(b.price - a.price)
-            }
-            newSortedData=tempSortedData.sort(compare_price)
-          }
-
-          //sorting the data in a-z format
-          if(state.sort_value=== "a-z"){
-            
-              newSortedData=tempSortedData.sort((a,b)=>{
-                return(
-                  // console.log("a-z clicked")
-                  a.name.localeCompare(b.name)
-                )
-              })
-          
-          }
-
-          //sorting the data in z-a format
-          if(state.sort_value=== "z-a"){
-            newSortedData=tempSortedData.sort((a,b)=>{
-              return b.name.localeCompare(a.name)
-            })
-          }
-        return{
-          ...state,
-          filter_products:newSortedData,
+        if (state.sort_value === "highest") {
+          return b.price - a.price;
         }
+
+        if (state.sort_value === "a-z") {
+          return a.name.localeCompare(b.name);
+        }
+
+        if (state.sort_value === "z-a") {
+          return b.name.localeCompare(a.name);
+        }
+      };
+      newSortedData = tempSortedData.sort(compare_data);
+
+      return {
+        ...state,
+        filter_products: newSortedData,
+      };
 
     default:
       return state;
