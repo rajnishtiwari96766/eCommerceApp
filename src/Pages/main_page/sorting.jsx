@@ -6,6 +6,10 @@ const Sorting = () => {
   return (
     <div className="flex justify-between p-2">
       <div>
+        <form action="">
+          <input type="text" placeholder="Search the product"  />
+        </form>
+
         <button className="p-2" onClick={gridView}>
           <i class="fa-solid fa-grip fa-xl"></i>
         </button>
