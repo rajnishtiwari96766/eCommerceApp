@@ -17,17 +17,17 @@ const ListView = ({ products }) => {
                 </figure>
               </div>
 
-              <div className="pl-5">
-                <div>{name}</div>
+              <div className="p-3">
+                <div className="capitalize  my-2">{name}</div>
 
-                <div>
+                <div className="my-2">
                   <Currency price={price} />
                 </div>
 
-                <div className="">{description.slice(0, 120)}...</div>
+                <div className="my-2">{description.slice(0, 120)}...</div>
 
                 <NavLink to={`/Single_prod/${id}`}>
-                  <button className="bg-slate-300 p-1 rounded-md">
+                  <button className="bg-slate-300 p-1 my-2 rounded-md">
                     Read More
                   </button>
                 </NavLink>
