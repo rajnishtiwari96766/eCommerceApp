@@ -1,4 +1,3 @@
-import { color } from "framer-motion";
 import React, { useState } from "react";
 import Cart_qty from "./cart_qty";
 
