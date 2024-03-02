@@ -2,12 +2,19 @@ import React from "react";
 import { customHook2 } from "../../context/filter_context";
 
 const Sorting = () => {
-  const { gridView, listView, filter_products, sort } = customHook2();
+  const { gridView, listView, filter_products, sort, filters:{text}, update_filter} = customHook2();
+  // const {filters:{text}}=customHook2()
   return (
     <div className="flex justify-between p-2">
       <div>
-        <form action="">
-          <input type="text" placeholder="Search the product"  />
+        <form onSubmit={(e) => e.preventDefault()}>
+          <input
+            type="text"
+            name="text"
+            value={text}
+            onChange={update_filter}
+            placeholder="Search the product"
+          />
         </form>
 
         <button className="p-2" onClick={gridView}>
