@@ -2,7 +2,14 @@ import React from "react";
 import { customHook2 } from "../../context/filter_context";
 
 const Sorting = () => {
-  const { gridView, listView, filter_products, sort, filters:{text}, update_filter} = customHook2();
+  const {
+    gridView,
+    listView,
+    filter_products,
+    sort,
+    filters: { text },
+    update_filter,
+  } = customHook2();
   // const {filters:{text}}=customHook2()
   return (
     <div className="flex justify-between p-2">

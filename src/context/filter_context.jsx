@@ -46,8 +46,9 @@ export const FilterContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    dispatch({type:"filtered_products"})
     dispatch({type:"sort_data"})
-  }, [state.sort_value]);
+  }, [products,state.sort_value,state.filters]);
 
   //to update the filter_value
   const update_filter=(event)=>{

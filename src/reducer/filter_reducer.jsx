@@ -54,15 +54,32 @@ const filter_reducer = (state, action) => {
         filter_products: newSortedData,
       };
 
-      case "update_filter_values":
-        const {name,value}=action.payload
-        return{
-          ...state,
-          filters:{
-            ...state.filters,
-            [name]:value //this will put the name as a value.
-          }
-        }
+    case "update_filter_values":
+      const { name, value } = action.payload;
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [name]: value, //this will put the name as a value.
+        },
+      };
+
+    case "filtered_products":
+      let { all_products } = state;
+      let temp_products = [...all_products];
+
+      const { text } = state.filters; //this will get the text data from the text-box
+
+      if (text) {
+        temp_products = temp_products.filter((currEle) => {
+          return currEle.name.toLowerCase().includes(text); //this will check the letters present in the text
+        });
+      }
+
+      return {
+        ...state,
+        filter_products: temp_products,
+      };
 
     default:
       return state;
