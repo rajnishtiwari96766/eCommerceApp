@@ -19,7 +19,7 @@ const Sorting = () => {
             type="text"
             name="text"
             value={text}
-            onChange={update_filter}
+            onChange={update_filter} //update_filter is present in the filter_context api
             placeholder="Search the product"
           />
         </form>
