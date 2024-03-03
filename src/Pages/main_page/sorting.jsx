@@ -7,8 +7,13 @@ const Sorting = () => {
     listView,
     filter_products,
     sort,
+    all_products
   } = customHook2();
   // const {filters:{text}}=customHook2()
+
+  //to get category-wise data...
+  const category_product_data=getUniqueData(all_products,"category")
+
   return (
     <div className="flex justify-between p-2">
       <div>
