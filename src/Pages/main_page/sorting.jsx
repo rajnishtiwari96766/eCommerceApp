@@ -7,23 +7,11 @@ const Sorting = () => {
     listView,
     filter_products,
     sort,
-    filters: { text },
-    update_filter,
   } = customHook2();
   // const {filters:{text}}=customHook2()
   return (
     <div className="flex justify-between p-2">
       <div>
-        <form onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="text"
-            name="text"
-            value={text}
-            onChange={update_filter} //update_filter is present in the filter_context api
-            placeholder="Search the product"
-          />
-        </form>
-
         <button className="p-2" onClick={gridView}>
           <i class="fa-solid fa-grip fa-xl"></i>
         </button>

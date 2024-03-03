@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { customHook2 } from "../../context/filter_context";
+
 
 const Navbar = () => {
+  const {
+    filters: { text },
+    update_filter,
+  } = customHook2();
   const [menu, setMenu] = useState(false);
 
   const togglemenu = () => {
@@ -20,11 +26,17 @@ const Navbar = () => {
           <NavLink to="/">
           <h1 className="text-2xl">Gadget-Store</h1>
           </NavLink>
+          <form onSubmit={(e) => e.preventDefault()}>
           <input
             type="text"
-            placeholder="Enter the product"
+            name="text"
+            value={text}
+            onChange={update_filter} //update_filter is present in the filter_context api
+            placeholder="Search the product"
             className="w-96 h-8 px-2 rounded-md hidden md:block" // Adjust the values as needed
+
           />
+        </form>
         </div>
 
         <div className="flex space-x-4 sm:space-x-8 md:space-x-12 lg:space-x-20 font-medium">
