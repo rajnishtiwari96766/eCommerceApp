@@ -12,6 +12,15 @@ const Sorting = () => {
   // const {filters:{text}}=customHook2()
 
   //to get category-wise data...
+  const getUniqueData=(data,property)=>{
+    let newValue=data.map((currElem)=>{
+      return currElem[property]
+    })
+
+    newValue=["All",...new Set(newValue)]
+
+    console.log(newValue);
+  }
   const category_product_data=getUniqueData(all_products,"category")
 
   return (
@@ -24,6 +33,8 @@ const Sorting = () => {
           <i class="fa-solid fa-list fa-lg"></i>
         </button>
       </div>
+
+     
 
       <div>{`${filter_products.length} Products Available`}</div>
 
