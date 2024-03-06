@@ -17,6 +17,7 @@ const Sorting = () => {
       return currElem[property]
     })
 
+    //implementing set in an array to get a unique data
     newValue=["All",...new Set(newValue)]
 
     console.log(newValue);
@@ -34,7 +35,9 @@ const Sorting = () => {
         </button>
       </div>
 
-     
+      <div>
+        {category_product_data}
+      </div>
 
       <div>{`${filter_products.length} Products Available`}</div>
 
