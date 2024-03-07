@@ -15,7 +15,9 @@ const initialState = {
   grid_view: true,
   sort_value: "lowest",
   filters:{
-    text:""
+    text:"",
+    category:"all",
+    
   }
 };
 
@@ -50,7 +52,7 @@ export const FilterContextProvider = ({ children }) => {
     dispatch({type:"sort_data"})
   }, [products,state.sort_value,state.filters]);
 
-  //to update the filter_value
+  //to update the filter_value,this is for the searchbar
   const update_filter=(event)=>{
     let name=event.target.name;
     let value=event.target.value;

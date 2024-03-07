@@ -13,6 +13,7 @@ const ProductList = () => {
  
       <div className='w-3/4 p-1'>
         <Sorting/>
+        <category_filter/>
         <GridView products={filter_products} />
       </div>
      
@@ -23,6 +24,7 @@ const ProductList = () => {
     return(
       <div>
         <Sorting/>
+        <category_filter/>
         <ListView products={filter_products}/>
       </div>
     )

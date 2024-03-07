@@ -1,5 +1,6 @@
 import React from "react";
 import { customHook2 } from "../../context/filter_context";
+import { NavLink } from "react-router-dom";
 
 const Sorting = () => {
   const {
@@ -9,21 +10,7 @@ const Sorting = () => {
     sort,
     all_products
   } = customHook2();
-  // const {filters:{text}}=customHook2()
-
-  //to get category-wise data...
-  const getUniqueData=(data,property)=>{
-    let newValue=data.map((currElem)=>{
-      return currElem[property]
-    })
-
-    //implementing set in an array to get a unique data
-    newValue=["All",...new Set(newValue)]
-
-    console.log(newValue);
-  }
-  const category_product_data=getUniqueData(all_products,"category")
-
+  
   return (
     <div className="flex justify-between p-2">
       <div>
@@ -33,10 +20,6 @@ const Sorting = () => {
         <button onClick={listView}>
           <i class="fa-solid fa-list fa-lg"></i>
         </button>
-      </div>
-
-      <div>
-        {category_product_data}
       </div>
 
       <div>{`${filter_products.length} Products Available`}</div>
