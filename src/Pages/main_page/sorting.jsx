@@ -1,6 +1,7 @@
 import React from "react";
 import { customHook2 } from "../../context/filter_context";
 import { NavLink } from "react-router-dom";
+import Category_filter from "./category_filter";
 
 const Sorting = () => {
   const {
@@ -21,7 +22,7 @@ const Sorting = () => {
           <i class="fa-solid fa-list fa-lg"></i>
         </button>
       </div>
-
+      <Category_filter/>
       <div>{`${filter_products.length} Products Available`}</div>
 
       <div>

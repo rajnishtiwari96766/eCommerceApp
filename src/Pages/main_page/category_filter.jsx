@@ -1,7 +1,8 @@
 import React from 'react'
+import { customHook2 } from '../../context/filter_context'
 
-const category_filter = () => {
-    const {filters:{text}}=customHook2()
+const Category_filter = () => {
+    const {filters:{text},all_products}=customHook2()
 
     const getUniqueData=(data,property)=>{
         let newValue=data.map((currElem)=>{
@@ -17,17 +18,18 @@ const category_filter = () => {
     
   return (
     <div>
-    {category_product_data.map((category,index)=>{
+    {/* {category_product_data.map((category,index)=>{
       return(
-        <button
-        type="button"
-        value={category}
-        onClick={update_filter}
-        ></button>
-      )
-    })}
+        // <button
+        // type="button"
+        // value={category}
+        
+        // ></button>
+        )
+    })} */}
+    <p>{category_product_data}</p>
   </div>
   )
 }
 
-export default category_filter
+export default Category_filter
