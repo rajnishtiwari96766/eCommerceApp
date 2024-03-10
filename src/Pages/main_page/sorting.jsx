@@ -1,16 +1,26 @@
 import React from "react";
 import { customHook2 } from "../../context/filter_context";
-import { NavLink } from "react-router-dom";
-import Category_filter from "./category_filter";
 
 const Sorting = () => {
   const {
     gridView,
     listView,
     filter_products,
-    sort,
-    all_products
+    sort,filters:{text,category},all_products,update_filter
   } = customHook2();
+
+    const getUniqueData=(data,property)=>{
+        let newValue=data.map((currElem)=>{
+          return currElem[property]
+        })
+    
+        //implementing set in an array to get a unique data
+        newValue=["All",...new Set(newValue)]
+        console.log(newValue);
+       return newValue;
+      }
+      const category_product_data=getUniqueData(all_products,"category")
+    
   
   return (
     <div className="flex justify-between p-2">
@@ -21,8 +31,27 @@ const Sorting = () => {
         <button onClick={listView}>
           <i class="fa-solid fa-list fa-lg"></i>
         </button>
+
       </div>
-      <Category_filter/>
+
+      <div>
+      {
+            category_product_data.map((currElem,index)=>{
+                return(
+                    <button
+                    key={index}
+                    type='button'
+                    name='category'
+                    value={currElem}
+                    onClick={update_filter}
+                    >
+                        {currElem}
+                    </button>
+                )
+            })
+        }
+      </div>
+
       <div>{`${filter_products.length} Products Available`}</div>
 
       <div>
