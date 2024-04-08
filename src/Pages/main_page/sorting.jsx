@@ -20,6 +20,7 @@ const Sorting = () => {
        return newValue;
       }
       const category_product_data=getUniqueData(all_products,"category")
+      // const company_product_data=getUniqueData(all_products,"company")
     
   
   return (
@@ -34,6 +35,7 @@ const Sorting = () => {
 
       </div>
 
+      {/* getting the category-wise filtered data */}
       <div>
       {
             category_product_data.map((currElem,index)=>{
@@ -51,6 +53,14 @@ const Sorting = () => {
             })
         }
       </div>
+
+      {/* <div>
+        <select>
+          <option >
+            {company_product_data}
+          </option>
+        </select>
+      </div> */}
 
       <div>{`${filter_products.length} Products Available`}</div>
 
