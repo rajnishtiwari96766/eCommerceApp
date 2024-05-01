@@ -60,10 +60,10 @@ const Sorting = () => {
 
       <div>
         <form action="">
-          <select name="" id="" onChange={sort}>
+          <select name="filter" id="filter" onChange={sort}>
             <option defaultValue>Select Brand</option>
-            <option value="Nokia">Nokia</option>
-            <option value=""></option>
+            <option value="nokia">Nokia</option>
+            <option value="samsung">Samsung</option>
             <option value="">{company}</option>
           </select>
         </form>

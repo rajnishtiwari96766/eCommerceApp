@@ -35,6 +35,9 @@ const Single_prod = () => {
     return <div>...Loading</div>;
   }
 
+  // console.log({company})
+
+
   return (
     <div>
       <div className="h-12 p-4 text-lg bg-slate-300 ">
@@ -86,6 +89,8 @@ const Single_prod = () => {
             <i class="fa-solid fa-shield fa-xl"></i>
             <p>1-Year Warranty</p>
             </button>
+
+            <p>{company}</p>
 
            </div>
 
