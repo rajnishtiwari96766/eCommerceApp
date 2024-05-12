@@ -7,25 +7,28 @@ const Sorting = () => {
     gridView,
     listView,
     filter_products,
-    sort,filters:{text,category},all_products,update_filter
+    sort,
+    company_sort,
+    filters: { text, category },
+    all_products,
+    update_filter,
   } = customHook2();
 
-  const {company}=Single_prod();
+  const comp_name = filter_products.map((data, index) => data.company);
 
-  const getUniqueData=(data,property)=>{
-        let newValue=data.map((currElem)=>{
-          return currElem[property]
-        })
-    
-        //implementing set in an array to get a unique data
-        newValue=["All",...new Set(newValue)]
-       return newValue;      
-      }
-      const category_product_data=getUniqueData(all_products,"category")
-      // console.log(all_products);
-      // const company_product_data=getUniqueData(all_products,"company")
-    
-  
+  const { company } = Single_prod();
+
+  const getUniqueData = (data, property) => {
+    let newValue = data.map((currElem) => {
+      return currElem[property];
+    });
+
+    //implementing set in an array to get a unique data
+    newValue = ["All", ...new Set(newValue)];
+    return newValue;
+  };
+  const category_product_data = getUniqueData(all_products, "category");
+
   return (
     <div className="flex justify-between p-2">
       <div>
@@ -35,41 +38,39 @@ const Sorting = () => {
         <button onClick={listView}>
           <i class="fa-solid fa-list fa-lg"></i>
         </button>
-
       </div>
 
       {/* getting the category-wise filtered data */}
       <div>
-      {
-            category_product_data.map((currElem,index)=>{
-                return(
-                    <button
-                    className="px-2"
-                    key={index}
-                    type='button'
-                    name='category'
-                    value={currElem}
-                    onClick={update_filter}
-                    >
-                        {currElem}
-                    </button>
-                )
-            })
-        }
+        {category_product_data.map((currElem, index) => {
+          return (
+            <button
+              className="px-2"
+              key={index}
+              type="button"
+              name="category"
+              value={currElem}
+              onClick={update_filter}
+            >
+              {currElem}
+            </button>
+          );
+        })}
       </div>
 
       <div>
-        <form action="">
-          <select name="filter" id="filter" onChange={sort}>
-            <option defaultValue>Select Brand</option>
-            <option value="nokia">Nokia</option>
-            <option value="samsung">Samsung</option>
-            <option value="">{company}</option>
+        <form>
+          <select name="filter" id="filter" onChange={company_sort}>
+            {["Select Brand", ...new Set(comp_name)].map((data, index) => {
+              return (
+                <option value="">
+                  {data.charAt(0).toUpperCase() + data.slice(1).toLowerCase()}
+                </option>
+              );
+            })}
           </select>
         </form>
       </div>
-
-      
 
       <div>{`${filter_products.length} Products Available`}</div>
 

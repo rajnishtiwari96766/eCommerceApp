@@ -25,6 +25,12 @@ const filter_reducer = (state, action) => {
         sort_value: action.payload,
       };
 
+      case "sort_company_wise":
+        return{
+          ...state,
+          sort_value:action.payload
+        }
+
     case "sort_data":
       let newSortedData;
       const { filter_products } = state;

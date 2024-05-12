@@ -47,6 +47,12 @@ export const FilterContextProvider = ({ children }) => {
     dispatch({ type: "sort_elements", payload: filter_option });
   };
 
+  //company-wise sorting
+  const company_sort=(e)=>{
+    const company_option=e.target.value;
+    dispatch({type: "sort_company_wise",payload: company_option})
+  }
+
   useEffect(() => {
     dispatch({type:"filtered_products"})
     dispatch({type:"sort_data"})
@@ -61,7 +67,7 @@ export const FilterContextProvider = ({ children }) => {
   }
 
   return (
-    <FilterContext.Provider value={{ ...state, gridView, listView, sort,update_filter }}>
+    <FilterContext.Provider value={{ ...state, gridView, listView, sort,update_filter,company_sort }}>
       {children}
     </FilterContext.Provider>
   );
