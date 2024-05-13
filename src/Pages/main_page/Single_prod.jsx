@@ -26,8 +26,6 @@ const Single_prod = () => {
   // this is a the hoook used to access the parameters for dynamic routing
   const { id } = useParams();
 
-  // console.log(id)
-
   useEffect(() => {
     getSingleProducts(`${api}?id=${id}`);
   }, []);
@@ -36,6 +34,9 @@ const Single_prod = () => {
   if (isSingleLoading) {
     return <div>...Loading</div>;
   }
+
+  // console.log({company})
+
 
   return (
     <div>
@@ -51,10 +52,8 @@ const Single_prod = () => {
         <div className="details py-10 ">
           <div className="flex">
             <div className="text-3xl my-3">{name}</div>
-            <div className="text-lg"></div>
             <p>{stock > 0 ? "In-stock" : "Out of stock"}</p>
           </div>
-          {/* <div>{company}</div> */}
 
           <Star_review stars={stars} reviews={reviews} />
 
@@ -90,6 +89,8 @@ const Single_prod = () => {
             <i class="fa-solid fa-shield fa-xl"></i>
             <p>1-Year Warranty</p>
             </button>
+
+            <p>{company}</p>
 
            </div>
 

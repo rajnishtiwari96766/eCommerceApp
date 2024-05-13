@@ -20,6 +20,7 @@ const Contact = () => {
       <div className="flex justify-between p-11">
         <div>
           <iframe
+          className="rounded"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5786314843904!2d77.60920317470023!3d12.934781815685215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae144d859731bb%3A0x7be523c4ee2a1b09!2sNexus%20Mall%20Koramangala!5e0!3m2!1sen!2sin!4v1703735711137!5m2!1sen!2sin"
             width="600"
             height="450"
@@ -67,8 +68,8 @@ const Contact = () => {
               ></textarea>
             </div>
 
-            <div className="pt-2">
-              <button className="bg-slate-300 p-1">Submit</button>
+            <div className="">
+              <button className="bg-slate-300 p-2 rounded-md">Submit</button>
             </div>
           </form>
         </div>
