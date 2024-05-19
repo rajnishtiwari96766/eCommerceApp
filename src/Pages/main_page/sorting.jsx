@@ -8,15 +8,13 @@ const Sorting = () => {
     listView,
     filter_products,
     sort,
-    company_sort,
-    filters: { text, category },
+    filters: { text, category, },
     all_products,
     update_filter,
+    company
   } = customHook2();
 
-  const comp_name = filter_products.map((data, index) => data.company);
 
-  const { company } = Single_prod();
 
   const getUniqueData = (data, property) => {
     let newValue = data.map((currElem) => {
@@ -25,14 +23,18 @@ const Sorting = () => {
 
     //implementing set in an array to get a unique data
     newValue = ["All", ...new Set(newValue)];
+
     return newValue;
+
   };
   const category_product_data = getUniqueData(all_products, "category");
+  const company_product_data = getUniqueData(all_products, "company");
+
 
   return (
     <div className="flex justify-between p-2">
       <div>
-        <button className="p-2" onClick={gridView}>
+          <button className="p-2" onClick={gridView}>
           <i class="fa-solid fa-grip fa-xl"></i>
         </button>
         <button onClick={listView}>
@@ -60,18 +62,17 @@ const Sorting = () => {
 
       <div>
         <form>
-          <select name="filter" id="filter" onChange={company_sort}>
-            {["Select Brand", ...new Set(comp_name)].map((data, index) => {
-              return (
-                <option value="">
-                  {data.charAt(0).toUpperCase() + data.slice(1).toLowerCase()}
-                </option>
-              );
+          <select name="filter" id="filter" onChange={company} >
+            {company_product_data.map((data,index)=>{
+              return(
+                <option value="company">{data}</option>
+              )
             })}
           </select>
         </form>
       </div>
 
+      {/* For the number of profucts available on screen */}
       <div>{`${filter_products.length} Products Available`}</div>
 
       <div>
