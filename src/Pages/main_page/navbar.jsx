@@ -15,9 +15,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar">
+    <div className="navbar ">
       <div
-        className="flex items-center justify-center space-x-60 h-24 pl-4 bg-slate-300 
+        className="flex items-center justify-center space-x-60 h-24 pl-8 bg-slate-300 
                     sm:space-x-40
                     md:space-x-60
                     lg:space-x-96"
@@ -40,10 +40,10 @@ const Navbar = () => {
         </div>
 
         <div className="flex space-x-4 sm:space-x-8 md:space-x-12 lg:space-x-20 font-medium">
-          <span className="hidden sm:block">Log in</span>
           <NavLink to="/cart" className="hidden sm:block">
             <i class="fa-solid fa-cart-shopping"></i>
           </NavLink>
+          <span className="hidden sm:block">Log in</span>
           <button className="block md:hidden" onClick={togglemenu}>
             {menu ? (
               <i class="fa-solid fa-xmark"></i>
@@ -57,7 +57,7 @@ const Navbar = () => {
       <div
         className={`${
           menu ? "flex" : "hidden"
-        } flex flex-col p-2 pl-20 md:flex md:flex-row md:space-x-10 md:px-52 bg-slate-300 `}
+        } flex flex-col p-2  md:flex md:flex-row md:space-x-10 md:px-48 bg-slate-300 `}
       >
         <NavLink to="/">Home</NavLink>
         <NavLink to="/ProductList">Our Products</NavLink>

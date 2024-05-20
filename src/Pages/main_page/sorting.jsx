@@ -8,10 +8,10 @@ const Sorting = () => {
     listView,
     filter_products,
     sort,
-    filters: { text, category, },
+    filters: { text, category, company },
     all_products,
     update_filter,
-    company
+
   } = customHook2();
 
 
@@ -29,12 +29,13 @@ const Sorting = () => {
   };
   const category_product_data = getUniqueData(all_products, "category");
   const company_product_data = getUniqueData(all_products, "company");
+  // console.log(company);
 
 
   return (
     <div className="flex justify-between p-2">
       <div>
-          <button className="p-2" onClick={gridView}>
+        <button className="p-2" onClick={gridView}>
           <i class="fa-solid fa-grip fa-xl"></i>
         </button>
         <button onClick={listView}>
@@ -62,10 +63,10 @@ const Sorting = () => {
 
       <div>
         <form>
-          <select name="filter" id="filter" onChange={company} >
-            {company_product_data.map((data,index)=>{
-              return(
-                <option value="company">{data}</option>
+          <select name="company" id="company" onChange={update_filter} >
+            {company_product_data.map((data, index) => {
+              return (
+                <option value={data} name="company">{data}</option>
               )
             })}
           </select>
