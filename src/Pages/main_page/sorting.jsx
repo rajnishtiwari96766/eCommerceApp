@@ -2,19 +2,17 @@ import React from "react";
 import { customHook2 } from "../../context/filter_context";
 import Single_prod from "./Single_prod";
 
-const Sorting = () => {
+const Sorting = ({product}) => {
   const {
     gridView,
     listView,
     filter_products,
     sort,
-    filters: { text, category, company },
+    filters: { text, category, company,color },
     all_products,
     update_filter,
 
   } = customHook2();
-
-
 
   const getUniqueData = (data, property) => {
     let newValue = data.map((currElem) => {
@@ -29,7 +27,8 @@ const Sorting = () => {
   };
   const category_product_data = getUniqueData(all_products, "category");
   const company_product_data = getUniqueData(all_products, "company");
-  // console.log(company);
+  const color_product_data=getUniqueData(all_products,"colors")
+  // console.log(color);
 
 
   return (
