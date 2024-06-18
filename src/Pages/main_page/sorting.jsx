@@ -2,13 +2,13 @@ import React from "react";
 import { customHook2 } from "../../context/filter_context";
 import Single_prod from "./Single_prod";
 
-const Sorting = ({product}) => {
+const Sorting = ({ product }) => {
   const {
     gridView,
     listView,
     filter_products,
     sort,
-    filters: { text, category, company,color },
+    filters: { text, category, company, color },
     all_products,
     update_filter,
 
@@ -20,15 +20,11 @@ const Sorting = ({product}) => {
     });
 
     //implementing set in an array to get a unique data
-    newValue = ["All", ...new Set(newValue)];
-
-    return newValue;
+    return (newValue = ["All", ...new Set(newValue)]);
 
   };
   const category_product_data = getUniqueData(all_products, "category");
   const company_product_data = getUniqueData(all_products, "company");
-  const color_product_data=getUniqueData(all_products,"colors")
-  // console.log(color);
 
 
   return (
@@ -47,7 +43,7 @@ const Sorting = ({product}) => {
         {category_product_data.map((currElem, index) => {
           return (
             <button
-              className="px-2"
+              className="px-2 cursor-pointer"
               key={index}
               type="button"
               name="category"
