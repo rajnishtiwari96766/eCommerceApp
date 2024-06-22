@@ -48,13 +48,6 @@ const Navbar = () => {
           <span className="hidden sm:block">Log in</span>
           </div>
 
-          {/* <button className="block md:hidden" onClick={togglemenu}>
-            {menu ? (
-              <i class="fa-solid fa-xmark"></i>
-            ) : (
-              <i class="fa-solid fa-bars"></i>
-            )}{" "}
-          </button> */}
         </div>
       </div>
 

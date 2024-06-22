@@ -19,12 +19,19 @@ const Sorting = ({ product }) => {
       return currElem[property];
     });
 
-    //implementing set in an array to get a unique data
-    return (newValue = ["All", ...new Set(newValue)]);
+    if(property==="colors"){
+      return (newValue= ["All", ...new Set(newValue.flat())]);
+    }else{
+      //implementing set in an array to get a unique data
+      return (newValue = ["All", ...new Set(newValue)]);
+    }
+
 
   };
   const category_product_data = getUniqueData(all_products, "category");
   const company_product_data = getUniqueData(all_products, "company");
+  const color_product_data=getUniqueData(all_products,"colors");
+  console.log(color_product_data);
 
 
   return (
@@ -62,6 +69,20 @@ const Sorting = ({ product }) => {
             {company_product_data.map((data, index) => {
               return (
                 <option value={data} name="company">{data}</option>
+              )
+            })}
+          </select>
+        </form>
+      </div>
+
+      <div>
+        <form action="">
+          <select name="colors" id="colors">
+            {color_product_data.map((data,index)=>{
+              return(
+                <option value="colors" 
+                style={{backgroundColor:data}} className="btnStyle" >
+                  {data}</option>
               )
             })}
           </select>
