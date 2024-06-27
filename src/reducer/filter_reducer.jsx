@@ -77,13 +77,19 @@ const filter_reducer = (state, action) => {
       let { all_products } = state;
       let temp_products = [...all_products];
 
-      const { text, category,company } = state.filters; //this will get the text-data/category-data from the text-box
+      const { text, category,company,color } = state.filters; //this will get the text-data/category-data from the text-box
 
       //this is used to compare the text
       if (text) {
         temp_products = temp_products.filter((currEle) => {
           return currEle.name.toLowerCase().includes(text); //this will check the letters present in the text
         });
+      }
+
+      if(color){
+        temp_products=temp_products.filter((currElem)=>
+           currElem.colors.includes(color)
+        )
       }
 
 

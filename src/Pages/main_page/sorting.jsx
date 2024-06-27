@@ -19,9 +19,9 @@ const Sorting = ({ product }) => {
       return currElem[property];
     });
 
-    if(property==="colors"){
-      return (newValue= ["All", ...new Set(newValue.flat())]);
-    }else{
+    if (property === "colors") {
+      return (newValue = ["All", ...new Set(newValue.flat())]);
+    } else {
       //implementing set in an array to get a unique data
       return (newValue = ["All", ...new Set(newValue)]);
     }
@@ -30,7 +30,7 @@ const Sorting = ({ product }) => {
   };
   const category_product_data = getUniqueData(all_products, "category");
   const company_product_data = getUniqueData(all_products, "company");
-  const color_product_data=getUniqueData(all_products,"colors");
+  const color_product_data = getUniqueData(all_products, "colors");
   console.log(color_product_data);
 
 
@@ -76,17 +76,22 @@ const Sorting = ({ product }) => {
       </div>
 
       <div>
-        <form action="">
-          <select name="colors" id="colors">
-            {color_product_data.map((data,index)=>{
-              return(
-                <option value="colors" 
-                style={{backgroundColor:data}} className="btnStyle" >
-                  {data}</option>
-              )
-            })}
-          </select>
-        </form>
+        {
+          color_product_data.map((currElem, index) => {
+            return (
+              <button
+                className="px-2 cursor-pointer"
+                key={index}
+                type="button"
+                name="color"
+                value={currElem}
+                onClick={update_filter}
+              >
+                {currElem}
+              </button>
+            )
+          })
+        }
       </div>
 
       {/* For the number of profucts available on screen */}
