@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { customHook2 } from "../../context/filter_context";
 import Single_prod from "./Single_prod";
 
@@ -13,6 +13,8 @@ const Sorting = ({ product }) => {
     update_filter,
 
   } = customHook2();
+
+  // const[activeColor,setActiveColor]=useState(color[0])
 
   const getUniqueData = (data, property) => {
     let newValue = data.map((currElem) => {
@@ -35,7 +37,7 @@ const Sorting = ({ product }) => {
 
 
   return (
-    <div className="flex justify-between p-2">
+    <div className="flex justify-between p-2 items-center">
       <div>
         <button className="p-2" onClick={gridView}>
           <i class="fa-solid fa-grip fa-xl"></i>
@@ -80,9 +82,9 @@ const Sorting = ({ product }) => {
           color_product_data.map((currElem, index) => {
             return (
               <button
-                className="px-2 cursor-pointer"
+                className={`px-2 m-1 cursor-pointer rounded-lg ${currElem !== color ? 'opacity-50' : ''}`}
+                style={{ backgroundColor: currElem }}
                 key={index}
-                type="button"
                 name="color"
                 value={currElem}
                 onClick={update_filter}

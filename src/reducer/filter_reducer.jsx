@@ -86,7 +86,7 @@ const filter_reducer = (state, action) => {
         });
       }
 
-      if(color){
+      if(color !== 'All'){
         temp_products=temp_products.filter((currElem)=>
            currElem.colors.includes(color)
         )

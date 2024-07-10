@@ -19,11 +19,11 @@ const Navbar = () => {
       <div
         className="bg-slate-300"
       >
+
         <div className="flex space-x-10">
           <NavLink to="/">
-          <h1 className="text-2xl">Gadget-Store</h1>
+            <h1 className="text-2xl">Gadget-Store</h1>
           </NavLink>
-          
         </div>
 
         <div className="flex justify-around font-medium">
@@ -41,20 +41,19 @@ const Navbar = () => {
 
           <div className="flex justify-between pe-44">
             <div className="pe-12">
-          <NavLink to="/cart" className="">
-            <i class="fa-solid fa-cart-shopping"></i>
-          </NavLink>
+              <NavLink to="/cart" className="">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </NavLink>
             </div>
-          <span className="hidden sm:block">Log in</span>
+            <span className="hidden sm:block">Log in</span>
           </div>
 
         </div>
       </div>
 
       <div
-        className={`${
-          menu ? "flex" : "hidden"
-        } flex flex-col p-2 pt-4 md:flex md:flex-row md:space-x-10 md:px-48 bg-slate-300 gap-4 `}
+        className={`${menu ? "flex" : "hidden"
+          } flex flex-col p-2 pt-4 md:flex md:flex-row md:space-x-10 md:px-48 bg-slate-300 gap-4 `}
       >
         <NavLink to="/">Home</NavLink>
         <NavLink to="/ProductList">Our Products</NavLink>
