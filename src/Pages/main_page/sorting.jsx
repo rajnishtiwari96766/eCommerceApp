@@ -15,6 +15,7 @@ const Sorting = ({ product }) => {
   } = customHook2();
 
   // const[activeColor,setActiveColor]=useState(color[0])
+  const [value,setValue]=useState(0);
 
   const getUniqueData = (data, property) => {
     let newValue = data.map((currElem) => {
@@ -33,9 +34,10 @@ const Sorting = ({ product }) => {
   const category_product_data = getUniqueData(all_products, "category");
   const company_product_data = getUniqueData(all_products, "company");
   const color_product_data = getUniqueData(all_products, "colors");
-  console.log(color_product_data);
 
-
+  const handleChange=(e)=>{
+    setValue(e.target.value);
+  }
   return (
     <div className="flex justify-between p-2 items-center">
       <div>
@@ -108,6 +110,14 @@ const Sorting = ({ product }) => {
             <option value="z-a">Products Z-A</option>
           </select>
         </form>
+      </div>
+
+      <div>
+        
+        <label htmlFor="rangeInput">Value: {value}</label>
+        <input type="range" id="rangeInput" min={0} max={60000} value={value} onChange={handleChange}>
+          
+        </input>
       </div>
     </div>
   );
