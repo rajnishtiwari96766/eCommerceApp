@@ -8,7 +8,7 @@ const Sorting = ({ product }) => {
     listView,
     filter_products,
     sort,
-    filters: { text, category, company, color },
+    filters: { text, category, company, color ,price },
     all_products,
     update_filter,
 
@@ -34,6 +34,8 @@ const Sorting = ({ product }) => {
   const category_product_data = getUniqueData(all_products, "category");
   const company_product_data = getUniqueData(all_products, "company");
   const color_product_data = getUniqueData(all_products, "colors");
+  const product_price=getUniqueData(all_products,"price")
+  console.log(product_price);
 
   const handleChange=(e)=>{
     setValue(e.target.value);
