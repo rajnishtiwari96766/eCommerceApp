@@ -11,7 +11,7 @@ const ProductList = () => {
   if(grid_view===true){
     return(
  
-      <div className='w-3/4 p-1'>
+      <div className=' p-1'>
         <Sorting/>
         <GridView products={filter_products} />
       </div>

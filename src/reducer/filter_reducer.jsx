@@ -25,11 +25,14 @@ const filter_reducer = (state, action) => {
         sort_value: action.payload,
       };
 
-      case "sort_company_wise":
-        return{
-          ...state,
-          sort_value:action.payload
+    case "comp_sort":
+      return {
+        ...state,
+        filters:{
+          ...state.filters,
+         company: action.payload
         }
+      };
 
     case "sort_data":
       let newSortedData;
@@ -74,7 +77,7 @@ const filter_reducer = (state, action) => {
       let { all_products } = state;
       let temp_products = [...all_products];
 
-      const { text,category } = state.filters; //this will get the text-data/category-data from the text-box
+      const { text, category,company,color } = state.filters; //this will get the text-data/category-data from the text-box
 
       //this is used to compare the text
       if (text) {
@@ -83,20 +86,27 @@ const filter_reducer = (state, action) => {
         });
       }
 
+      if(color !== 'All'){
+        temp_products=temp_products.filter((currElem)=>
+           currElem.colors.includes(color)
+        )
+      }
+
+
       //this is used to compare the category elements
-      if(category){
-        temp_products=temp_products.filter((currElem)=>{
-          return currElem.category===category
+      if (category !== "All") {
+        temp_products = temp_products.filter((currElem) => {
+          return currElem.category === category
         })
       }
 
-      if(category==="All"){
-          return{
-            ...state,
-            filter_products:all_products
-          }
-        }
-  
+      //this is used to compare the company of the elements
+      if (company !=="All") {
+        temp_products = temp_products.filter((currElem) => {
+          return currElem.company ===company;
+        })
+      }
+
       return {
         ...state,
         filter_products: temp_products,
