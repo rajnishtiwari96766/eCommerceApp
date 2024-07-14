@@ -73,7 +73,17 @@ const filter_reducer = (state, action) => {
         },
       };
 
-    case "filtered_products":
+    case 'update_price_values':
+      const {price,val}=action.payload;
+      return{
+        ...state,
+        filters:{
+          ...state.filters,
+          [price]:val
+          // console.log(val);
+        }
+      }
+      case "filtered_products":
       let { all_products } = state;
       let temp_products = [...all_products];
 

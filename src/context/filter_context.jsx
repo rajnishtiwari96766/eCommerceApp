@@ -18,7 +18,8 @@ const initialState = {
     text:"",
     category:"All",
     company:"All",
-    color:"All"
+    color:"All",
+    price:60000
   },
 };
 
@@ -48,14 +49,6 @@ export const FilterContextProvider = ({ children }) => {
     dispatch({ type: "sort_elements", payload: filter_option });
   };
 
-  //filtering the data based on the brand
-  // const company=(e)=>{
-  //   const brand=e.target.value;
-  //   console.log(brand)
-  //   dispatch({type:"comp_sort",payload:brand})
-  // }
-  
-
   //to update the filter_value,this is for the searchbar
   const update_filter=(event)=>{
     let name=event.target.name;
@@ -64,13 +57,20 @@ export const FilterContextProvider = ({ children }) => {
     return dispatch({type:"update_filter_values", payload:{name,value}})
   }
 
+  //to update price filter
+  const updatePriceFilter=(event)=>{
+    let value=event.target.value;
+
+    return dispatch({ type: 'update_price_values', payload: { value } });
+  }
+
   useEffect(() => {
     dispatch({type:"filtered_products"})
     dispatch({type:"sort_data"})
   }, [products,state.sort_value,state.filters]);
 
   return (
-    <FilterContext.Provider value={{ ...state, gridView, listView, sort,update_filter }}>
+    <FilterContext.Provider value={{ ...state, gridView, listView, sort,update_filter,updatePriceFilter}}>
       {children}
     </FilterContext.Provider>
   );
