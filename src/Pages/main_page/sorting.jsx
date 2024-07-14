@@ -114,11 +114,9 @@ const Sorting = ({ product }) => {
         </form>
       </div>
 
-      <div>
-        
+      <div> 
         <label htmlFor="rangeInput">Value: {value}</label>
         <input type="range" id="rangeInput" min={0} max={60000} value={value} onChange={handleChange}>
-          
         </input>
       </div>
     </div>
