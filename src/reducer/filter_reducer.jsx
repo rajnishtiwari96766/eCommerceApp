@@ -83,6 +83,7 @@ const filter_reducer = (state, action) => {
           // console.log(val);
         }
       }
+      
       case "filtered_products":
       let { all_products } = state;
       let temp_products = [...all_products];

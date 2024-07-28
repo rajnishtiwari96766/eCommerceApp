@@ -19,7 +19,7 @@ const initialState = {
     category:"All",
     company:"All",
     color:"All",
-    price:60000
+    // price:60000
   },
 };
 
