@@ -19,14 +19,14 @@ const initialState = {
     category:"All",
     company:"All",
     color:"All",
-    // price:60000
+    price:0,
   },
 };
 
 // In FilterContextProvider
 export const FilterContextProvider = ({ children }) => {
   const { products } = customHook1();
-  // console.log(products)
+  console.log(products)
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -57,20 +57,13 @@ export const FilterContextProvider = ({ children }) => {
     return dispatch({type:"update_filter_values", payload:{name,value}})
   }
 
-  //to update price filter
-  const updatePriceFilter=(event)=>{
-    let value=event.target.value;
-
-    return dispatch({ type: 'update_price_values', payload: { value } });
-  }
-
   useEffect(() => {
     dispatch({type:"filtered_products"})
     dispatch({type:"sort_data"})
   }, [products,state.sort_value,state.filters]);
 
   return (
-    <FilterContext.Provider value={{ ...state, gridView, listView, sort,update_filter,updatePriceFilter}}>
+    <FilterContext.Provider value={{ ...state, gridView, listView, sort,update_filter}}>
       {children}
     </FilterContext.Provider>
   );

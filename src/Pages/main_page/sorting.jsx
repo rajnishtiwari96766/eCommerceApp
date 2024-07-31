@@ -15,6 +15,7 @@ const Sorting = ({ product }) => {
 
   const [value, setValue] = useState(0);
 
+
   const getUniqueData = (data, property) => {
     let newValue = data.map((currElem) => {
       return currElem[property];
@@ -22,7 +23,8 @@ const Sorting = ({ product }) => {
 
     if (property === "colors") {
       return (newValue = ["All", ...new Set(newValue.flat())]);
-    } else {
+    }
+    else {
       //implementing set in an array to get a unique data
       return (newValue = ["All", ...new Set(newValue)]);
     }
@@ -31,12 +33,14 @@ const Sorting = ({ product }) => {
   const category_product_data = getUniqueData(all_products, "category");
   const company_product_data = getUniqueData(all_products, "company");
   const color_product_data = getUniqueData(all_products, "colors");
+  const price_data=getUniqueData(all_products,"price");
 
 
   const handleChange = (e) => {
     setValue(e.target.value);
   }
 
+  console.log(price_data);
   return (
     <div className="flex justify-between p-2 items-center">
       <div>
@@ -112,7 +116,10 @@ const Sorting = ({ product }) => {
 
       <div>
         <label htmlFor="rangeInput">Value: {value}</label>
-        <input type="range" id="rangeInput" min={0} max={1099999} value={value} onChange={handleChange} />
+        <input type="range" id="rangeInput" min={0} max={6000001} value={value} onChange={handleChange} />
+        {/* {price_data.map((data,index)=>{
+          return data;
+        })} */}
       </div>
     </div>
   );
