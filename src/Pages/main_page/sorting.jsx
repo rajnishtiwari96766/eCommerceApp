@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { customHook2 } from "../../context/filter_context";
-import Single_prod from "./Single_prod";
 
 const Sorting = ({ product }) => {
   const {
@@ -8,14 +7,14 @@ const Sorting = ({ product }) => {
     listView,
     filter_products,
     sort,
-    filters: { text, category, company, color ,price },
+    filters: { text, category, company, color, price },
     all_products,
     update_filter,
-
+    updatePriceFilter
   } = customHook2();
 
-  // const[activeColor,setActiveColor]=useState(color[0])
-  const [value,setValue]=useState(0);
+  const [value, setValue] = useState(0);
+
 
   const getUniqueData = (data, property) => {
     let newValue = data.map((currElem) => {
@@ -24,22 +23,24 @@ const Sorting = ({ product }) => {
 
     if (property === "colors") {
       return (newValue = ["All", ...new Set(newValue.flat())]);
-    } else {
+    }
+    else {
       //implementing set in an array to get a unique data
       return (newValue = ["All", ...new Set(newValue)]);
     }
-
-
   };
+
   const category_product_data = getUniqueData(all_products, "category");
   const company_product_data = getUniqueData(all_products, "company");
   const color_product_data = getUniqueData(all_products, "colors");
-  const product_price=getUniqueData(all_products,"price")
-  console.log(product_price);
+  const price_data=getUniqueData(all_products,"price");
 
-  const handleChange=(e)=>{
+
+  const handleChange = (e) => {
     setValue(e.target.value);
   }
+
+  console.log(price_data);
   return (
     <div className="flex justify-between p-2 items-center">
       <div>
@@ -82,25 +83,24 @@ const Sorting = ({ product }) => {
       </div>
 
       <div>
-        {
-          color_product_data.map((currElem, index) => {
-            return (
-              <button
-                className={`px-2 m-1 cursor-pointer rounded-lg ${currElem !== color ? 'opacity-50' : ''}`}
-                style={{ backgroundColor: currElem }}
-                key={index}
-                name="color"
-                value={currElem}
-                onClick={update_filter}
-              >
-                {currElem}
-              </button>
-            )
-          })
+        {color_product_data.map((currElem, index) => {
+          return (
+            <button
+              className={`px-2 m-1 cursor-pointer rounded-lg ${currElem !== color ? 'opacity-50' : ''}`}
+              style={{ backgroundColor: currElem }}
+              key={index}
+              name="color"
+              value={currElem}
+              onClick={update_filter}
+            >
+              {currElem}
+            </button>
+          )
+        })
         }
       </div>
 
-      {/* For the number of profucts available on screen */}
+      {/* For the number of products available on screen */}
       <div>{`${filter_products.length} Products Available`}</div>
 
       <div>
@@ -115,11 +115,11 @@ const Sorting = ({ product }) => {
       </div>
 
       <div>
-        
         <label htmlFor="rangeInput">Value: {value}</label>
-        <input type="range" id="rangeInput" min={0} max={60000} value={value} onChange={handleChange}>
-          
-        </input>
+        <input type="range" id="rangeInput" min={0} max={6000001} value={value} onChange={handleChange} />
+        {/* {price_data.map((data,index)=>{
+          return data;
+        })} */}
       </div>
     </div>
   );

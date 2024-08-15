@@ -73,11 +73,13 @@ const filter_reducer = (state, action) => {
         },
       };
 
-    case "filtered_products":
+    
+      
+      case "filtered_products":
       let { all_products } = state;
       let temp_products = [...all_products];
 
-      const { text, category,company,color } = state.filters; //this will get the text-data/category-data from the text-box
+      const { text, category,company,color,price } = state.filters; //this will get the text-data/category-data from the text-box
 
       //this is used to compare the text
       if (text) {
@@ -92,7 +94,6 @@ const filter_reducer = (state, action) => {
         )
       }
 
-
       //this is used to compare the category elements
       if (category !== "All") {
         temp_products = temp_products.filter((currElem) => {
@@ -104,6 +105,26 @@ const filter_reducer = (state, action) => {
       if (company !=="All") {
         temp_products = temp_products.filter((currElem) => {
           return currElem.company ===company;
+        })
+      }
+
+      //this is used to compare price of the elements
+      // if(price === 0){
+      //   temp_products=temp_products.filter((currElem)=>{
+      //     // return currElem.price === price;
+      //     return currElem.price <= price;
+
+      //   })
+      // }else{
+      //   temp_products = temp_products.filter((currElem) => {
+      //     return currElem.price <= price;
+      //   })
+      // }
+
+      if(price !== 0){
+        temp_products = temp_products.filter((currElem) => {
+          // return currElem.price <= price;
+          console.log(currElem.price < price)
         })
       }
 

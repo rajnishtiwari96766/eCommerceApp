@@ -18,14 +18,15 @@ const initialState = {
     text:"",
     category:"All",
     company:"All",
-    color:"All"
+    color:"All",
+    price:0,
   },
 };
 
 // In FilterContextProvider
 export const FilterContextProvider = ({ children }) => {
   const { products } = customHook1();
-  // console.log(products)
+  console.log(products)
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -48,14 +49,6 @@ export const FilterContextProvider = ({ children }) => {
     dispatch({ type: "sort_elements", payload: filter_option });
   };
 
-  //filtering the data based on the brand
-  // const company=(e)=>{
-  //   const brand=e.target.value;
-  //   console.log(brand)
-  //   dispatch({type:"comp_sort",payload:brand})
-  // }
-  
-
   //to update the filter_value,this is for the searchbar
   const update_filter=(event)=>{
     let name=event.target.name;
@@ -70,7 +63,7 @@ export const FilterContextProvider = ({ children }) => {
   }, [products,state.sort_value,state.filters]);
 
   return (
-    <FilterContext.Provider value={{ ...state, gridView, listView, sort,update_filter }}>
+    <FilterContext.Provider value={{ ...state, gridView, listView, sort,update_filter}}>
       {children}
     </FilterContext.Provider>
   );
