@@ -108,23 +108,11 @@ const filter_reducer = (state, action) => {
         })
       }
 
-      //this is used to compare price of the elements
-      // if(price === 0){
-      //   temp_products=temp_products.filter((currElem)=>{
-      //     // return currElem.price === price;
-      //     return currElem.price <= price;
-
-      //   })
-      // }else{
-      //   temp_products = temp_products.filter((currElem) => {
-      //     return currElem.price <= price;
-      //   })
-      // }
-
+      console.log(price);
+      
       if(price !== 0){
         temp_products = temp_products.filter((currElem) => {
-          // return currElem.price <= price;
-          console.log(currElem.price < price)
+          return currElem.price <= price;
         })
       }
 

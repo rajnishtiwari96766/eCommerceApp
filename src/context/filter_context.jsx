@@ -26,7 +26,6 @@ const initialState = {
 // In FilterContextProvider
 export const FilterContextProvider = ({ children }) => {
   const { products } = customHook1();
-  console.log(products)
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -56,6 +55,10 @@ export const FilterContextProvider = ({ children }) => {
 
     return dispatch({type:"update_filter_values", payload:{name,value}})
   }
+
+  // const clear_filter=()=>{
+  //   return a
+  // }
 
   useEffect(() => {
     dispatch({type:"filtered_products"})

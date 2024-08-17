@@ -1,0 +1,7 @@
+.clear-button{
+    background-color: blueviolet;
+
+    & :hover{
+        background-color: blue;
+    }
+}

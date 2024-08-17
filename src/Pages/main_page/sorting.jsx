@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { customHook2 } from "../../context/filter_context";
+import Currency from "../../helper/Currency";
 
 const Sorting = ({ product }) => {
   const {
@@ -7,10 +8,9 @@ const Sorting = ({ product }) => {
     listView,
     filter_products,
     sort,
-    filters: { text, category, company, color, price },
+    filters: { text, category, company, color,price },
     all_products,
     update_filter,
-    updatePriceFilter
   } = customHook2();
 
   const [value, setValue] = useState(0);
@@ -35,12 +35,16 @@ const Sorting = ({ product }) => {
   const color_product_data = getUniqueData(all_products, "colors");
   const price_data=getUniqueData(all_products,"price");
 
-
   const handleChange = (e) => {
     setValue(e.target.value);
   }
 
   console.log(price_data);
+  const ans= price_data.filter((data)=>{
+    return data < value;
+    
+  })
+  console.log(ans);
   return (
     <div className="flex justify-between p-2 items-center">
       <div>
@@ -113,15 +117,23 @@ const Sorting = ({ product }) => {
           </select>
         </form>
       </div>
-
+ 
+      {/* Price range filter */}
       <div>
-        <label htmlFor="rangeInput">Value: {value}</label>
-        <input type="range" id="rangeInput" min={0} max={6000001} value={value} onChange={handleChange} />
-        {/* {price_data.map((data,index)=>{
-          return data;
-        })} */}
+        <label htmlFor="rangeInput">Value: <Currency price={value}></Currency></label>
+        <input type="range" id="rangeInput" min={0} max={6000000} defaultValue={6000000}
+        value={value} onChange={handleChange} onClick={update_filter} name="price"/>
       </div>
+
+      {/* Clear filter option */}
+      <button className="btn btn-primary" type="button" onClick={all_products}>
+        Clear
+      </button>
+       
     </div>
+
+
+    
   );
 };
 
