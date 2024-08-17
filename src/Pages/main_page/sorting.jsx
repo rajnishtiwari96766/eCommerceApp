@@ -11,6 +11,7 @@ const Sorting = ({ product }) => {
     filters: { text, category, company, color,price },
     all_products,
     update_filter,
+    clearFilter
   } = customHook2();
 
   const [value, setValue] = useState(0);
@@ -45,6 +46,11 @@ const Sorting = ({ product }) => {
     
   })
   console.log(ans);
+
+  // const handleReload=()=>{
+  //   window.location.reload();
+  // }
+
   return (
     <div className="flex justify-between p-2 items-center">
       <div>
@@ -126,7 +132,7 @@ const Sorting = ({ product }) => {
       </div>
 
       {/* Clear filter option */}
-      <button className="btn btn-primary" type="button" onClick={all_products}>
+      <button className="btn btn-primary" type="button" onClick={clearFilter}>
         Clear
       </button>
        
