@@ -40,16 +40,10 @@ const Sorting = ({ product }) => {
     setValue(e.target.value);
   }
 
-  console.log(price_data);
   const ans= price_data.filter((data)=>{
     return data < value;
     
   })
-  console.log(ans);
-
-  // const handleReload=()=>{
-  //   window.location.reload();
-  // }
 
   return (
     <div className="flex justify-between p-2 items-center">
