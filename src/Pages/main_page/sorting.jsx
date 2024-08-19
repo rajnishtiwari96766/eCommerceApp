@@ -36,6 +36,10 @@ const Sorting = ({ product }) => {
   const color_product_data = getUniqueData(all_products, "colors");
   const price_data=getUniqueData(all_products,"price");
 
+  const numericPrices = price_data.filter(price => typeof price === 'number' && !isNaN(price));
+  
+  const maxAns=numericPrices.reduce((accu,currVal)=> Math.max(accu,currVal),0);
+
   const handleChange = (e) => {
     setValue(e.target.value);
   }
@@ -121,7 +125,7 @@ const Sorting = ({ product }) => {
       {/* Price range filter */}
       <div>
         <label htmlFor="rangeInput">Value: <Currency price={value}></Currency></label>
-        <input type="range" id="rangeInput" min={0} max={6000000} defaultValue={6000000}
+        <input type="range" id="rangeInput" min={0} max={maxAns} 
         value={value} onChange={handleChange} onClick={update_filter} name="price"/>
       </div>
 
