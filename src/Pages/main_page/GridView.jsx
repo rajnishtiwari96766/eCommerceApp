@@ -3,7 +3,7 @@ import Product from "./Product";
 
 const GridView = ({ products }) => {
   return (
-    <div className="flex flex-wrap ml-1/2 pt-5">
+    <div className="flex flex-wrap ml-1/2 pt-3">
       {products.map((currEle) => {
         return (
           <div className="">
