@@ -11,7 +11,7 @@ const ProductList = () => {
   if(grid_view===true){
     return(
  
-      <div className=' p-1'>
+      <div className='flex p-1'>
         <Sorting/>
         <GridView products={filter_products} />
       </div>
@@ -21,7 +21,7 @@ const ProductList = () => {
 
   if(grid_view===false){
     return(
-      <div>
+      <div className='flex'>
         <Sorting/>
         <ListView products={filter_products}/>
       </div>

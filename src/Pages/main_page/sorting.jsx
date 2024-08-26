@@ -50,12 +50,12 @@ const Sorting = ({ product }) => {
   })
 
   return (
-    <div className="flex justify-between p-2 items-center">
+    <div className="p-2 items-center">
       <div>
         <button className="p-2" onClick={gridView}>
           <i class="fa-solid fa-grip fa-xl"></i>
         </button>
-        <button onClick={listView}>
+        <button className="p-2" onClick={listView}>
           <i class="fa-solid fa-list fa-lg"></i>
         </button>
       </div>
@@ -65,7 +65,7 @@ const Sorting = ({ product }) => {
         {category_product_data.map((currElem, index) => {
           return (
             <button
-              className="px-2 cursor-pointer"
+              className="flex p-1 font-medium cursor-pointer"
               key={index}
               type="button"
               name="category"
@@ -78,9 +78,9 @@ const Sorting = ({ product }) => {
         })}
       </div>
 
-      <div>
+      <div className="pt-3">
         <form>
-          <select name="company" id="company" onChange={update_filter} >
+          <select className="w-full" name="company" id="company" onChange={update_filter} >
             {company_product_data.map((data, index) => {
               return (
                 <option value={data} name="company">{data}</option>
@@ -90,11 +90,30 @@ const Sorting = ({ product }) => {
         </form>
       </div>
 
-      <div>
+      <div className="pt-3">
+        <form>
+          <select className="w-full" name="filter" id="filter" onChange={sort}>
+            <option value="lowest">Lowest-Price</option>
+            <option value="highest">Highest-Price</option>
+            <option value="a-z">Products A-Z</option>
+            <option value="z-a">Products Z-A</option>
+          </select>
+        </form>
+      </div>
+
+      <div className="pt-3">
+        <label htmlFor="rangeInput">Value: {value}</label>
+        <input type="range" id="rangeInput" min={0} max={6000001} value={value} onChange={handleChange} />
+        {/* {price_data.map((data,index)=>{
+          return data;
+        })} */}
+      </div>
+
+      <div className="pt-3">
         {color_product_data.map((currElem, index) => {
           return (
             <button
-              className={`px-2 m-1 cursor-pointer rounded-lg ${currElem !== color ? 'opacity-50' : ''}`}
+              className={`flex m-1 w-full cursor-pointer rounded-lg ${currElem !== color ? 'opacity-50' : ''}`}
               style={{ backgroundColor: currElem }}
               key={index}
               name="color"
@@ -109,7 +128,7 @@ const Sorting = ({ product }) => {
       </div>
 
       {/* For the number of products available on screen */}
-      <div>{`${filter_products.length} Products Available`}</div>
+      {/* <div>{`${filter_products.length} Products Available`}</div> */}
 
       <div>
         <form>
