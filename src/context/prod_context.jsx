@@ -21,12 +21,12 @@ const initialState = {
 const Provider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  //1st API call this loads all the products`
   const getproducts = async (url) => {
     dispatch({ type: "Data_Loading" });
     try {
       const res = await axios.get(url);
       const products = await res.data;
-      console.log(products)
       dispatch({ type: "Get_Data", payload: products });
       //payload means what do you need during the state
     } catch (error) {
