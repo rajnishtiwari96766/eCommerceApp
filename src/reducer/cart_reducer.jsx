@@ -3,10 +3,12 @@ const reducer=(action,state)=>{
         case 'Add_to_cart':
             return{
                 ...state,
-                // isLoading:true
+                cart:[...state.cart,{...action.payload}]
             }
 
             default:
                 return state;
     }
 }
+
+export default reducer;

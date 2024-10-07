@@ -1,27 +1,27 @@
 import { createContext, useContext, useReducer } from "react";
 import reducer from "../reducer/cart_reducer";
 
-const CartContext = createContext();
+const CartContext = createContext(); //first step
 
 const initialState = {
     cart:[],
     singleItem:{}
-};
+}; //second step
 
-const Provider = ({ children }) => {
+export const CartContextProvider = ({ children }) => {
     const [state, dispatch] =useReducer(reducer, initialState);
 
-    const addItemToCart=()=>{
-        dispatch({type:Add_to_cart,payload:item})
+    const addItemToCart=(item)=>{
+        dispatch({type:'Add_to_cart',payload:item})
     }
 
     return (
         <CartContext.Provider value={{ ...state,addItemToCart }}>{children}</CartContext.Provider>
     )
-}
+} // third step
 
 const cartHook=()=>{
     return useContext(CartContext);
-}
+} // Last step to get all the data whereever you need
 
-export {Provider,CartContext,cartHook}
+export {CartContext,cartHook}
