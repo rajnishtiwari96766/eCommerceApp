@@ -5,10 +5,11 @@ import { cartHook } from '../../context/cart_context'
 const Cart_qty = ({amount,inc_qty,dec_qty,product}) => {
   const {addItemToCart}=cartHook();
   const {id,color,stock}=product;
-  const handleAddToCart=({product})=>{
+
+  const handleAddToCart=()=>{
     const itemToAdd={...product};
+    console.log('itemToAdd',itemToAdd);
     addItemToCart(itemToAdd);
-    // console.log(product);
   }
 
   return (

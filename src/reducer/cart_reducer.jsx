@@ -1,4 +1,4 @@
-const reducer=(action,state)=>{
+const reducer=(state,action)=>{
     switch(action.type){
         case 'Add_to_cart':
             return{
