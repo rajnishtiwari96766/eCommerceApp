@@ -15,8 +15,12 @@ export const CartContextProvider = ({ children }) => {
         dispatch({type:'Add_to_cart',payload:item})
     }
 
+    const removeItemFromCart=(index)=>{
+        dispatch({type:'Remove_item',payload:index});
+    }
+
     return (
-        <CartContext.Provider value={{ ...state,addItemToCart }}>{children}</CartContext.Provider>
+        <CartContext.Provider value={{ ...state, addItemToCart, removeItemFromCart}}>{children}</CartContext.Provider>
     )
 } // third step
 

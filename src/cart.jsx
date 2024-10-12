@@ -1,17 +1,20 @@
 import React from 'react'
 import { cartHook } from './context/cart_context'
 import PageNavigation from './Pages/main_page/PageNavigation';
-import Img_arr from './Pages/main_page/Img_arr';
 
 const Cart = () => {
-  const { cart } = cartHook();
+  const { cart, removeItemFromCart } = cartHook();
+
+  const handleDelete = (index) => {
+    removeItemFromCart(index);
+  }
   return (
     <div className=''>
       <div className="h-12 p-4 text-lg bg-slate-300 ">
         <PageNavigation title='Cart' />
       </div>
 
-      {
+      {cart.length > 0 ?
         cart.map((item, index) => {
           return (
             <div className='flex justify-center align-middle'>
@@ -20,10 +23,10 @@ const Cart = () => {
                 <div>{item.price}</div>
                 <div>Quantity</div>
               </div>
-                <div className='cursor-pointer m-2'><i class="fa-solid fa-trash"></i></div>
+              <div className='cursor-pointer m-2' onClick={() => handleDelete(index)}><i class="fa-solid fa-trash"></i></div>
             </div>
           )
-        })
+        }) : <div className='flex justify-center text-gray-400 font-extrabold text-2xl'>Your cart is empty</div>
       }
     </div>
   )
