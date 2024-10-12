@@ -5,8 +5,6 @@ import Product from "./Product";
 const FeatureProducts = () => {
   const { isLoading, featureProducts } = customHook1();
 
-  // console.log(featureProducts)
-
   if (isLoading) {
     return <p>...Loading</p>;
   }
