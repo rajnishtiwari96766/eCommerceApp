@@ -1,6 +1,7 @@
 import React from 'react'
 import { cartHook } from './context/cart_context'
 import PageNavigation from './Pages/main_page/PageNavigation';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const { cart, removeItemFromCart } = cartHook();
@@ -8,6 +9,8 @@ const Cart = () => {
   const handleDelete = (index) => {
     removeItemFromCart(index);
   }
+
+  const navigate = useNavigate();
   return (
     <div className=''>
       <div className="h-12 p-4 text-lg bg-slate-300 ">
@@ -50,7 +53,7 @@ const Cart = () => {
 
       <div className='flex justify-center py-2'>
         <div className='flex justify-between  w-2/3 pr-5'>
-          <button className='bg-blue-200 p-3 rounded-md '>Continue Shopping</button>
+          <button className='bg-blue-200 p-3 rounded-md ' onClick={() => navigate('/ProductList')}>Continue Shopping</button>
           <button className='bg-orange-300 p-3 rounded-md'>Clear Cart</button>
         </div>
       </div>
@@ -59,8 +62,8 @@ const Cart = () => {
         <div className='w-1/4 p-3 bg-gray-100 rounded-md'>
           <div className='py-2'>Total Amount:0.00</div>
           <div className='py-2'>GST: </div>
-          <hr className='' />
-          <div className=''>Grand Total:</div>
+          <hr className='border-black py-1' />
+          <div className='py-2'>Grand Total:</div>
         </div>
       </div>
 
