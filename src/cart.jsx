@@ -14,20 +14,56 @@ const Cart = () => {
         <PageNavigation title='Cart' />
       </div>
 
+      <div className='flex justify-center align-middle p-5 pb-0 '>
+        <div className='w-2/3 flex justify-between text-lg font-medium'>
+          <p>Item</p>
+          <p>Price</p>
+          <p>Quantity</p>
+        </div>
+      </div>
+
+      <hr className='mx-60 my-2 border-black ' />
       {cart.length > 0 ?
         cart.map((item, index) => {
           return (
-            <div className='flex justify-center align-middle'>
-              <div className='bg-slate-100 w-2/3 flex justify-between p-2'>
-                <div className='w-80 font-medium text-lg'>{item.name}</div>
-                <div>{item.price}</div>
-                <div>Quantity</div>
+            <>
+              <div className='flex justify-center align-middle gap-5'>
+                <div className='bg-slate-100 w-2/3 flex justify-between p-2'>
+                  <div className='w-56 h-20  flex space-x-5'> <img src={item.image[0].url} alt="...loading" />
+                    <p>
+                      {item.name}
+                    </p>
+                  </div>
+                  <div>{item.price}</div>
+                  <div>-</div>
+                </div>
+                <div className='cursor-pointer m-2' onClick={() => handleDelete(index)}><i class="fa-solid fa-trash"></i></div>
               </div>
-              <div className='cursor-pointer m-2' onClick={() => handleDelete(index)}><i class="fa-solid fa-trash"></i></div>
-            </div>
+
+              <hr className='mx-72 my-2 ' />
+            </>
           )
         }) : <div className='flex justify-center text-gray-400 font-extrabold text-2xl'>Your cart is empty</div>
       }
+
+      <hr className='mx-60 my-2 border-black' />
+
+      <div className='flex justify-center py-2'>
+        <div className='flex justify-between  w-2/3 pr-5'>
+          <button className='bg-blue-200 p-3 rounded-md '>Continue Shopping</button>
+          <button className='bg-orange-300 p-3 rounded-md'>Clear Cart</button>
+        </div>
+      </div>
+
+      <div className='flex justify-end pe-72 py-8'>
+        <div className='w-1/4 p-3 bg-gray-100 rounded-md'>
+          <div className='py-2'>Total Amount:0.00</div>
+          <div className='py-2'>GST: </div>
+          <hr className='' />
+          <div className=''>Grand Total:</div>
+        </div>
+      </div>
+
     </div>
   )
 }

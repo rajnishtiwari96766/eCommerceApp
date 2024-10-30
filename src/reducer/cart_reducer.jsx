@@ -2,7 +2,7 @@ const reducer=(state,action)=>{
     switch(action.type){
         case 'Add_to_cart':
             const updatedCart=[...state.cart,{...action.payload}];
-            console.log(updatedCart);
+            console.log('updatedCart:',updatedCart);
             return{
                 ...state,
                 cart:updatedCart
@@ -13,7 +13,7 @@ const reducer=(state,action)=>{
                 ...state,
                 cart: state.cart.filter((_,i)=> i !== action.payload)
             };
-            
+
             default:
                 return state;
     }
