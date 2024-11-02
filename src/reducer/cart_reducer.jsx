@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 const reducer=(state,action)=>{
     switch(action.type){
         case 'Add_to_cart':
@@ -7,6 +8,12 @@ const reducer=(state,action)=>{
                 ...state,
                 cart:updatedCart
             }
+
+            case 'Clear_cart':
+                return{
+                    ...state,
+                    cart:[]
+                }
 
         case 'Remove_item':
             return{

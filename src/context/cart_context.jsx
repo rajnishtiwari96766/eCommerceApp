@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useContext, useReducer } from "react";
 import reducer from "../reducer/cart_reducer";
 
@@ -19,8 +20,12 @@ export const CartContextProvider = ({ children }) => {
         dispatch({type:'Remove_item',payload:index});
     }
 
+    const clearCart=()=>{
+        dispatch({type:'Clear_cart'});
+    }
+
     return (
-        <CartContext.Provider value={{ ...state, addItemToCart, removeItemFromCart}}>{children}</CartContext.Provider>
+        <CartContext.Provider value={{ ...state, addItemToCart, removeItemFromCart, clearCart}}>{children}</CartContext.Provider>
     )
 } // third step
 
